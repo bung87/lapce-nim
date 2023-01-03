@@ -4,6 +4,8 @@
 #![deny(clippy::print_stdout)]
 #![deny(clippy::print_stderr)]
 
+// https://oknozor.github.io/blog/how-to-lapce-plugin/
+
 use anyhow::Result;
 use lapce_plugin::{
     psp_types::{
@@ -22,9 +24,9 @@ register_plugin!(State);
 fn initialize(params: InitializeParams) -> Result<()> {
     let document_selector: DocumentSelector = vec![DocumentFilter {
         // lsp language id
-        language: Some(String::from("language_id")),
+        language: Some(String::from("nim")),
         // glob pattern
-        pattern: Some(String::from("**/*.{ext1,ext2}")),
+        pattern: Some(String::from("**/*.{nim,nims}")),
         // like file:
         scheme: None,
     }];
